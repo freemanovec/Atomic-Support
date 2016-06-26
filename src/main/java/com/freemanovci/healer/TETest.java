@@ -16,6 +16,10 @@ public class TETest extends TileEntity implements IConfigurable, ICableOutputter
 	int preTicked = 0;
 	int retickAt = 20;
 
+	public static void init(){
+		System.out.println("Tile initialized!");
+	}
+	
 	@Override
 	public void updateEntity(){
 		//System.out.println("TE Ticked!");

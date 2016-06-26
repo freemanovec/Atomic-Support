@@ -15,6 +15,8 @@ public class BlockTest extends Block implements ITileEntityProvider{
 	@Override
 	public TileEntity createNewTileEntity(World world, int side) {
 		System.out.println("New tile entity has been created in world " + world.toString() + " facing " + side);
+		TETest created = new TETest();
+		created.init();
 		return new TETest();
 	}
 
