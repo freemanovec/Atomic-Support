@@ -6,6 +6,7 @@ import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 
 @Mod(modid = Main.MODID, version = Main.VERSION)
 public class Main
@@ -20,6 +21,10 @@ public class Main
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("atomic_healer");
+    	atomic_healer.init();
+    	GameRegistry.registerItem(atomic_healer, "atomic_healer");
+    	
     	Block testBlock = new BlockTest(Material.ground);
 		GameRegistry.registerBlock(testBlock, "mekanismAPITest");
     }

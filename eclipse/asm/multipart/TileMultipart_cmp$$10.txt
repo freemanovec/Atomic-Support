@@ -1,0 +1,733 @@
+// class version 50.0 (50)
+// access flags 0x1
+public class TileMultipart_cmp$$10 extends codechicken/multipart/TileMultipart  implements TBlockableConnection$$4 TConfigurable$$0 TEnergyHandler$$9 TStrictEnergyAcceptor$$1 TTileNetwork$$8 TTransmitterTile$$5 codechicken/multipart/scalatraits/TSlottedTile codechicken/multipart/scalatraits/TTileChangeTile  {
+
+
+  // access flags 0x2
+  private Lmekanism/api/transmitters/IBlockableConnection; TBlockableConnection$$4$$impl
+
+  // access flags 0x2
+  private Lmekanism/api/IConfigurable; TConfigurable$$0$$impl
+
+  // access flags 0x2
+  private Lcofh/api/energy/IEnergyHandler; TEnergyHandler$$9$$impl
+
+  // access flags 0x2
+  private Lmekanism/api/energy/IStrictEnergyAcceptor; TStrictEnergyAcceptor$$1$$impl
+
+  // access flags 0x2
+  private Lmekanism/common/base/ITileNetwork; TTileNetwork$$8$$impl
+
+  // access flags 0x2
+  private Lmekanism/api/transmitters/ITransmitterTile; TTransmitterTile$$5$$impl
+
+  // access flags 0x2
+  private [Lcodechicken/multipart/TMultiPart; v_partMap
+
+  // access flags 0x2
+  private Z weakTileChanges
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL codechicken/multipart/TileMultipart.<init> ()V
+    ALOAD 0
+    INVOKESTATIC TBlockableConnection$$4$class.$init$ (LTBlockableConnection$$4;)V
+    ALOAD 0
+    INVOKESTATIC TConfigurable$$0$class.$init$ (LTConfigurable$$0;)V
+    ALOAD 0
+    INVOKESTATIC TEnergyHandler$$9$class.$init$ (LTEnergyHandler$$9;)V
+    ALOAD 0
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.$init$ (LTStrictEnergyAcceptor$$1;)V
+    ALOAD 0
+    INVOKESTATIC TTileNetwork$$8$class.$init$ (LTTileNetwork$$8;)V
+    ALOAD 0
+    INVOKESTATIC TTransmitterTile$$5$class.$init$ (LTTransmitterTile$$5;)V
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TSlottedTile$class.$init$ (Lcodechicken/multipart/scalatraits/TSlottedTile;)V
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TTileChangeTile$class.$init$ (Lcodechicken/multipart/scalatraits/TTileChangeTile;)V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public TBlockableConnection$$4$$impl()Lmekanism/api/transmitters/IBlockableConnection;
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.TBlockableConnection$$4$$impl : Lmekanism/api/transmitters/IBlockableConnection;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public TBlockableConnection$$4$$impl_$eq(Lmekanism/api/transmitters/IBlockableConnection;)V
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD TileMultipart_cmp$$10.TBlockableConnection$$4$$impl : Lmekanism/api/transmitters/IBlockableConnection;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TBlockableConnection$$4$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESPECIAL codechicken/multipart/TileMultipart.canAddPart (Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TBlockableConnection$$4$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESPECIAL codechicken/multipart/TileMultipart.partRemoved (Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public TBlockableConnection$$4$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESPECIAL codechicken/multipart/TileMultipart.bindPart (Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TBlockableConnection$$4$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESPECIAL codechicken/multipart/TileMultipart.copyFrom (Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TConfigurable$$0$$impl()Lmekanism/api/IConfigurable;
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.TConfigurable$$0$$impl : Lmekanism/api/IConfigurable;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public TConfigurable$$0$$impl_$eq(Lmekanism/api/IConfigurable;)V
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD TileMultipart_cmp$$10.TConfigurable$$0$$impl : Lmekanism/api/IConfigurable;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TConfigurable$$0$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TBlockableConnection$$4$class.canAddPart (LTBlockableConnection$$4;Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TConfigurable$$0$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TBlockableConnection$$4$class.partRemoved (LTBlockableConnection$$4;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public TConfigurable$$0$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TBlockableConnection$$4$class.bindPart (LTBlockableConnection$$4;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TConfigurable$$0$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TBlockableConnection$$4$class.copyFrom (LTBlockableConnection$$4;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TEnergyHandler$$9$$impl()Lcofh/api/energy/IEnergyHandler;
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.TEnergyHandler$$9$$impl : Lcofh/api/energy/IEnergyHandler;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public TEnergyHandler$$9$$impl_$eq(Lcofh/api/energy/IEnergyHandler;)V
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD TileMultipart_cmp$$10.TEnergyHandler$$9$$impl : Lcofh/api/energy/IEnergyHandler;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TEnergyHandler$$9$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TConfigurable$$0$class.canAddPart (LTConfigurable$$0;Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TEnergyHandler$$9$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TConfigurable$$0$class.partRemoved (LTConfigurable$$0;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public TEnergyHandler$$9$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TConfigurable$$0$class.bindPart (LTConfigurable$$0;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TEnergyHandler$$9$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TConfigurable$$0$class.copyFrom (LTConfigurable$$0;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TStrictEnergyAcceptor$$1$$impl()Lmekanism/api/energy/IStrictEnergyAcceptor;
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.TStrictEnergyAcceptor$$1$$impl : Lmekanism/api/energy/IStrictEnergyAcceptor;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public TStrictEnergyAcceptor$$1$$impl_$eq(Lmekanism/api/energy/IStrictEnergyAcceptor;)V
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD TileMultipart_cmp$$10.TStrictEnergyAcceptor$$1$$impl : Lmekanism/api/energy/IStrictEnergyAcceptor;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TStrictEnergyAcceptor$$1$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TEnergyHandler$$9$class.canAddPart (LTEnergyHandler$$9;Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TStrictEnergyAcceptor$$1$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TEnergyHandler$$9$class.partRemoved (LTEnergyHandler$$9;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public TStrictEnergyAcceptor$$1$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TEnergyHandler$$9$class.bindPart (LTEnergyHandler$$9;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TStrictEnergyAcceptor$$1$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TEnergyHandler$$9$class.copyFrom (LTEnergyHandler$$9;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTileNetwork$$8$$impl()Lmekanism/common/base/ITileNetwork;
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.TTileNetwork$$8$$impl : Lmekanism/common/base/ITileNetwork;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public TTileNetwork$$8$$impl_$eq(Lmekanism/common/base/ITileNetwork;)V
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD TileMultipart_cmp$$10.TTileNetwork$$8$$impl : Lmekanism/common/base/ITileNetwork;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTileNetwork$$8$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.canAddPart (LTStrictEnergyAcceptor$$1;Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTileNetwork$$8$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.partRemoved (LTStrictEnergyAcceptor$$1;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public TTileNetwork$$8$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.bindPart (LTStrictEnergyAcceptor$$1;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTileNetwork$$8$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.copyFrom (LTStrictEnergyAcceptor$$1;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTransmitterTile$$5$$impl()Lmekanism/api/transmitters/ITransmitterTile;
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.TTransmitterTile$$5$$impl : Lmekanism/api/transmitters/ITransmitterTile;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public TTransmitterTile$$5$$impl_$eq(Lmekanism/api/transmitters/ITransmitterTile;)V
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD TileMultipart_cmp$$10.TTransmitterTile$$5$$impl : Lmekanism/api/transmitters/ITransmitterTile;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTransmitterTile$$5$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTileNetwork$$8$class.canAddPart (LTTileNetwork$$8;Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTransmitterTile$$5$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TTileNetwork$$8$class.partRemoved (LTTileNetwork$$8;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public TTransmitterTile$$5$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTileNetwork$$8$class.bindPart (LTTileNetwork$$8;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public TTransmitterTile$$5$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTileNetwork$$8$class.copyFrom (LTTileNetwork$$8;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public v_partMap()[Lcodechicken/multipart/TMultiPart;
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.v_partMap : [Lcodechicken/multipart/TMultiPart;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public v_partMap_$eq([Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD TileMultipart_cmp$$10.v_partMap : [Lcodechicken/multipart/TMultiPart;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TSlottedTile$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TTransmitterTile$$5$class.partRemoved (LTTransmitterTile$$5;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TSlottedTile$$super$clearParts()V
+    ALOAD 0
+    INVOKESPECIAL codechicken/multipart/TileMultipart.clearParts ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TSlottedTile$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTransmitterTile$$5$class.bindPart (LTTransmitterTile$$5;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TSlottedTile$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTransmitterTile$$5$class.canAddPart (LTTransmitterTile$$5;Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TSlottedTile$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTransmitterTile$$5$class.copyFrom (LTTransmitterTile$$5;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public weakTileChanges()Z
+    ALOAD 0
+    GETFIELD TileMultipart_cmp$$10.weakTileChanges : Z
+    IRETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public weakTileChanges_$eq(Z)V
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD TileMultipart_cmp$$10.weakTileChanges : Z
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TTileChangeTile$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC codechicken/multipart/scalatraits/TSlottedTile$class.partRemoved (Lcodechicken/multipart/scalatraits/TSlottedTile;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TTileChangeTile$$super$clearParts()V
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TSlottedTile$class.clearParts (Lcodechicken/multipart/scalatraits/TSlottedTile;)V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TTileChangeTile$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TSlottedTile$class.bindPart (Lcodechicken/multipart/scalatraits/TSlottedTile;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TTileChangeTile$$super$onNeighborTileChange(III)V
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    ILOAD 3
+    INVOKESPECIAL codechicken/multipart/TileMultipart.onNeighborTileChange (III)V
+    RETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public codechicken$multipart$scalatraits$TTileChangeTile$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TSlottedTile$class.copyFrom (Lcodechicken/multipart/scalatraits/TSlottedTile;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public copyFrom(Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TTileChangeTile$class.copyFrom (Lcodechicken/multipart/scalatraits/TTileChangeTile;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public bindPart(Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TTileChangeTile$class.bindPart (Lcodechicken/multipart/scalatraits/TTileChangeTile;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public clearParts()V
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TTileChangeTile$class.clearParts (Lcodechicken/multipart/scalatraits/TTileChangeTile;)V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC codechicken/multipart/scalatraits/TTileChangeTile$class.partRemoved (Lcodechicken/multipart/scalatraits/TTileChangeTile;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public onNeighborTileChange(III)V
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    ILOAD 3
+    INVOKESTATIC codechicken/multipart/scalatraits/TTileChangeTile$class.onNeighborTileChange (Lcodechicken/multipart/scalatraits/TTileChangeTile;III)V
+    RETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public getWeakChanges()Z
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TTileChangeTile$class.getWeakChanges (Lcodechicken/multipart/scalatraits/TTileChangeTile;)Z
+    IRETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public partMap(I)Lcodechicken/multipart/TMultiPart;
+    ALOAD 0
+    ILOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TSlottedTile$class.partMap (Lcodechicken/multipart/scalatraits/TSlottedTile;I)Lcodechicken/multipart/TMultiPart;
+    ARETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TSlottedTile$class.canAddPart (Lcodechicken/multipart/scalatraits/TSlottedTile;Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public getTransmitter()Lmekanism/api/transmitters/IGridTransmitter;
+    ALOAD 0
+    INVOKESTATIC TTransmitterTile$$5$class.getTransmitter (LTTransmitterTile$$5;)Lmekanism/api/transmitters/IGridTransmitter;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public handlePacketData(Lio/netty/buffer/ByteBuf;)V throws java/lang/Exception 
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTileNetwork$$8$class.handlePacketData (LTTileNetwork$$8;Lio/netty/buffer/ByteBuf;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public getNetworkedData(Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TTileNetwork$$8$class.getNetworkedData (LTTileNetwork$$8;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    ARETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public transferEnergyToAcceptor(Lnet/minecraftforge/common/util/ForgeDirection;D)D
+    ALOAD 0
+    ALOAD 1
+    DLOAD 2
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.transferEnergyToAcceptor (LTStrictEnergyAcceptor$$1;Lnet/minecraftforge/common/util/ForgeDirection;D)D
+    DRETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public canReceiveEnergy(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.canReceiveEnergy (LTStrictEnergyAcceptor$$1;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public getEnergy()D
+    ALOAD 0
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.getEnergy (LTStrictEnergyAcceptor$$1;)D
+    DRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public setEnergy(D)V
+    ALOAD 0
+    DLOAD 1
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.setEnergy (LTStrictEnergyAcceptor$$1;D)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public getMaxEnergy()D
+    ALOAD 0
+    INVOKESTATIC TStrictEnergyAcceptor$$1$class.getMaxEnergy (LTStrictEnergyAcceptor$$1;)D
+    DRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public getEnergyStored(Lnet/minecraftforge/common/util/ForgeDirection;)I
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TEnergyHandler$$9$class.getEnergyStored (LTEnergyHandler$$9;Lnet/minecraftforge/common/util/ForgeDirection;)I
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public extractEnergy(Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    ILOAD 3
+    INVOKESTATIC TEnergyHandler$$9$class.extractEnergy (LTEnergyHandler$$9;Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    IRETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public canConnectEnergy(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TEnergyHandler$$9$class.canConnectEnergy (LTEnergyHandler$$9;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public receiveEnergy(Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    ILOAD 3
+    INVOKESTATIC TEnergyHandler$$9$class.receiveEnergy (LTEnergyHandler$$9;Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    IRETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public getMaxEnergyStored(Lnet/minecraftforge/common/util/ForgeDirection;)I
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TEnergyHandler$$9$class.getMaxEnergyStored (LTEnergyHandler$$9;Lnet/minecraftforge/common/util/ForgeDirection;)I
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public onSneakRightClick(Lnet/minecraft/entity/player/EntityPlayer;I)Z
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TConfigurable$$0$class.onSneakRightClick (LTConfigurable$$0;Lnet/minecraft/entity/player/EntityPlayer;I)Z
+    IRETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public onRightClick(Lnet/minecraft/entity/player/EntityPlayer;I)Z
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC TConfigurable$$0$class.onRightClick (LTConfigurable$$0;Lnet/minecraft/entity/player/EntityPlayer;I)Z
+    IRETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public canConnectMutual(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TBlockableConnection$$4$class.canConnectMutual (LTBlockableConnection$$4;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public canConnect(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC TBlockableConnection$$4$class.canConnect (LTBlockableConnection$$4;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
