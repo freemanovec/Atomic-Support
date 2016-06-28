@@ -1,8 +1,8 @@
-package com.freemanovci.healer.items;
+package healer.items;
 
 import java.util.List;
 
-import com.freemanovci.healer.common.Supplementary;
+import healer.common.Supplementary;
 
 import mekanism.api.EnumColor;
 import mekanism.api.energy.IEnergizedItem;

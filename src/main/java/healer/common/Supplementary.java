@@ -1,4 +1,4 @@
-package com.freemanovci.healer.common;
+package healer.common;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

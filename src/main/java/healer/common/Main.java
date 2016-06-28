@@ -1,6 +1,6 @@
-package com.freemanovci.healer.common;
+package healer.common;
 
-import com.freemanovci.healer.items.HealerItem;
+import healer.items.HealerItem;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -20,12 +20,8 @@ public class Main
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
-    	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("atomic_healer").setCreativeTab(CreativeTabs.tabCombat);
-    	atomic_healer.init();
-    	GameRegistry.registerItem(atomic_healer, "atomic_healer");
-    	
-    	//Block testBlock = new BlockTest(Material.ground);
-		//GameRegistry.registerBlock(testBlock, "mekanismAPITest");
+    	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("AtomicHealer").setCreativeTab(CreativeTabs.tabCombat).setTextureName(MODID + ":" + "AtomicHealer");
+    	GameRegistry.registerItem(atomic_healer, "AtomicHealer");
     }
     @EventHandler
     public void init(FMLInitializationEvent event)

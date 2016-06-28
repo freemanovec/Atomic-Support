@@ -1,4 +1,4 @@
-package com.freemanovci.healer.blocks;
+package healer.blocks;
 
 import mekanism.api.EnumColor;
 import mekanism.api.IConfigurable;
