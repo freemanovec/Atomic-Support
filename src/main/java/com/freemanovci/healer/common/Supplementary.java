@@ -10,9 +10,9 @@ public class Supplementary {
 	//I was too lazy to think of this code
 	//So I just edited it
 	public static String humanReadableEnergy(long number){
-		System.out.println("number = "+number);
+		//System.out.println("number = "+number);
 		long absNumber = Math.abs(number);
-		System.out.println("absNumber = "+absNumber);
+		//System.out.println("absNumber = "+absNumber);
 		double result = number;
 		String suffix = "";
 		if(absNumber < 1000){
