@@ -1,4 +1,6 @@
-package com.freemanovci.healer;
+package com.freemanovci.healer.common;
+
+import com.freemanovci.healer.items.HealerItem;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;

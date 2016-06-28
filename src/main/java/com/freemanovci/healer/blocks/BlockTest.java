@@ -1,4 +1,4 @@
-package com.freemanovci.healer;
+package com.freemanovci.healer.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;

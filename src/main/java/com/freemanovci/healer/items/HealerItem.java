@@ -1,6 +1,8 @@
-package com.freemanovci.healer;
+package com.freemanovci.healer.items;
 
 import java.util.List;
+
+import com.freemanovci.healer.common.Supplementary;
 
 import mekanism.api.EnumColor;
 import mekanism.api.energy.IEnergizedItem;
@@ -18,7 +20,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 		System.out.println("Atomic Healer initialized!");
 	}
 	
-	private double energy = 0;
+	private double internEnergy = 0;
 	private double maxEnergy = 1500000;
 	
 	private double perHealthEnergy = 10000;
@@ -26,10 +28,22 @@ public class HealerItem extends Item implements IEnergizedItem{
 	//??? Noone knows what this does.. hm... maybe it's the max rate of recharging... Well, this is enough.
 	private double maxTransfer = 50000;
 	
-	private boolean active = true;
+	private boolean internActive = true;
 	
+	public double energy() {
+		return internEnergy;
+	}
+	public void setEnergy(double energy) {
+		this.internEnergy = energy;
+	}
+	public boolean active() {
+		return internActive;
+	}
+	public void setActive(boolean active) {
+		this.internActive = active;
+	}
 	private void toggleActive(){
-		active = !active;
+		setActive(!active());
 	}
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag){
@@ -38,7 +52,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 		if(!GuiScreen.isShiftKeyDown()){
 			EnumColor color;
 			String message;
-			if(active){
+			if(active()){
 			color = EnumColor.BRIGHT_GREEN;
 			message = "On";
 			}
@@ -46,8 +60,8 @@ public class HealerItem extends Item implements IEnergizedItem{
 			color = EnumColor.RED;
 			message = "Off";
 			}
-			list.add(EnumColor.AQUA + "Stored energy: " + EnumColor.GREY + Supplementary.humanReadableEnergy((long)energy));
-			list.add("Mode: " + color + active);
+			list.add(EnumColor.AQUA + "Stored energy: " + EnumColor.GREY + Supplementary.humanReadableEnergy((long)internEnergy));
+			list.add("Mode: " + color + active());
 			list.add("Hold " + EnumColor.AQUA + "LSHIFT" + EnumColor.GREY + " for details");
 		}else{
 			list.add("Uses energy to locate");
@@ -63,12 +77,12 @@ public class HealerItem extends Item implements IEnergizedItem{
 			toggleActive();
 			String message = "Active: ";
 			EnumColor color;
-			if(active)
+			if(active())
 				color = EnumColor.BRIGHT_GREEN;
 			else
 				color = EnumColor.RED;
 			String messageActive;
-			if(active)
+			if(active())
 				messageActive = "Activated";
 			else
 				messageActive = "Deactivated";
@@ -85,11 +99,11 @@ public class HealerItem extends Item implements IEnergizedItem{
     public double getDurabilityForDisplay(ItemStack itemStack)
     {
 		//System.out.println("Requested getDurabilityForDisplay, returning: " + (1f-(float)energy/(float)maxEnergy));
-        return 1f-(float)energy/(float)maxEnergy;
+        return 1f-(float)internEnergy/(float)maxEnergy;
     }
 	private boolean discharge(double amount){
-		if(amount<=energy){
-			energy -= amount;
+		if(amount<=internEnergy){
+			internEnergy -= amount;
 			return true;
 		}else{
 			return false;
@@ -97,7 +111,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 	}
 	@Override
 	public void onUpdate(ItemStack par1, World par2, Entity par3, int par4, boolean par5){
-		if(!par2.isRemote && active){
+		if(!par2.isRemote && active()){
 			EntityPlayerMP player = (EntityPlayerMP) par3;
 			//float health = Minecraft.getMinecraft().thePlayer.getHealth();
 			//float maxHealth = Minecraft.getMinecraft().thePlayer.getMaxHealth();
@@ -118,17 +132,17 @@ public class HealerItem extends Item implements IEnergizedItem{
 
 	@Override
 	public double getEnergy(ItemStack itemStack) {
-		System.out.println("Requested getEnergy, returning: " + energy);
-		return energy;
+		System.out.println("Requested getEnergy, returning: " + internEnergy);
+		return internEnergy;
 	}
 
 	@Override
 	public void setEnergy(ItemStack itemStack, double amount) {
 		//System.out.println("Requested setEnergy to amount: " + amount);
 		if(amount<=maxEnergy){
-			energy = amount;
+			internEnergy = amount;
 		}else{
-			energy = maxEnergy;
+			internEnergy = maxEnergy;
 		}
 	}
 
