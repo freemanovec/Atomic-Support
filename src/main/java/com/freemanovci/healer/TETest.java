@@ -1,5 +1,6 @@
 package com.freemanovci.healer;
 
+import mekanism.api.EnumColor;
 import mekanism.api.IConfigurable;
 import mekanism.api.energy.ICableOutputter;
 import mekanism.api.energy.IStrictEnergyStorage;
@@ -47,27 +48,25 @@ public class TETest extends TileEntity implements IConfigurable, ICableOutputter
 		
 		String message = "BOOM! In your face!!";*/
 		
-		String message = "Actual energy: " + actualEnergy;
-		System.out.println(message);
-		player.addChatMessage(new ChatComponentText(message));
+		String message = "Actual energy: ";
+		System.out.println(message+actualEnergy);
+		player.addChatMessage(new ChatComponentText(EnumColor.GREY + message + EnumColor.DARK_AQUA + actualEnergy));
 		
 		return true;
 	}
 	@Override
 	public boolean onRightClick(EntityPlayer player, int side) {
-		//System.out.println("Right clicked on side " + side);
-		
-		/*String color = "";
-		if(!canOutputEnergy){
-			color="$a";
-		}else{
-			color="$4";
-		}*/
-		String message = "Can output power: " + !canOutputEnergy;
-		System.out.println(message);
-		player.addChatMessage(new ChatComponentText(message));
-		
 		canOutputEnergy = !canOutputEnergy;
+		String message = "Can output power: ";
+		System.out.println(message + canOutputEnergy);
+		EnumColor color;
+		if(canOutputEnergy)
+			color = EnumColor.BRIGHT_GREEN;
+		else
+			color = EnumColor.RED;
+		player.addChatMessage(new ChatComponentText(EnumColor.GREY + message + color + canOutputEnergy));
+		
+		
 		return true;
 	}
 

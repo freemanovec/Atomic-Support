@@ -1,11 +1,15 @@
 package com.freemanovci.healer;
 
+import java.util.List;
+
+import mekanism.api.EnumColor;
 import mekanism.api.energy.IEnergizedItem;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
 public class HealerItem extends Item implements IEnergizedItem{
@@ -21,6 +25,41 @@ public class HealerItem extends Item implements IEnergizedItem{
 	//???
 	private double maxTransfer = 5000;
 	
+	private boolean active = true;
+	
+	private void toggleActive(){
+		active = !active;
+	}
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag){
+		super.addInformation(itemstack, entityplayer, list, flag);
+		
+		EnumColor color;
+		if(active)
+			color = EnumColor.BRIGHT_GREEN;
+		else
+			color = EnumColor.RED;
+		list.add("Mode: " + color + active);
+	}
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player){
+		if(!world.isRemote && player.isSneaking()){
+			toggleActive();
+			String message = "Active: ";
+			EnumColor color;
+			if(active)
+				color = EnumColor.BRIGHT_GREEN;
+			else
+				color = EnumColor.RED;
+			String messageActive;
+			if(active)
+				messageActive = "Activated";
+			else
+				messageActive = "Deactivated";
+			player.addChatMessage(new ChatComponentText(EnumColor.GREY + message + color + messageActive));
+		}
+		return itemstack;
+	}
 	@Override
 	public boolean showDurabilityBar(ItemStack itemStack){
 		//System.out.println("Requested showDurabilityBar, returning: " + true);
@@ -42,7 +81,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 	}
 	@Override
 	public void onUpdate(ItemStack par1, World par2, Entity par3, int par4, boolean par5){
-		if(!par2.isRemote){
+		if(!par2.isRemote && active){
 			EntityPlayerMP player = (EntityPlayerMP) par3;
 			//float health = Minecraft.getMinecraft().thePlayer.getHealth();
 			//float maxHealth = Minecraft.getMinecraft().thePlayer.getMaxHealth();
@@ -98,7 +137,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 	@Override
 	public boolean canSend(ItemStack itemStack) {
 		//System.out.println("Requested canSend, returning: " + true);
-		return true;
+		return false;
 	}
 
 	@Override
