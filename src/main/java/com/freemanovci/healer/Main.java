@@ -18,17 +18,17 @@ public class Main
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
-    	 
-    }
-    @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
     	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("atomic_healer").setCreativeTab(CreativeTabs.tabCombat);
     	atomic_healer.init();
     	GameRegistry.registerItem(atomic_healer, "atomic_healer");
     	
     	Block testBlock = new BlockTest(Material.ground);
 		GameRegistry.registerBlock(testBlock, "mekanismAPITest");
+    }
+    @EventHandler
+    public void init(FMLInitializationEvent event)
+    {
+    	
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
