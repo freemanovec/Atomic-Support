@@ -20,3 +20,6 @@ eclipse/.recommenders/
 eclipse/saves/Flat Anthropy/level*
 eclipse/saves/
 eclipse/logs/
+eclipse/asm/
+eclipse/config/
+eclipse/usernamecache.json
