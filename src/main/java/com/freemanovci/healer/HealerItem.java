@@ -4,6 +4,7 @@ import java.util.List;
 
 import mekanism.api.EnumColor;
 import mekanism.api.energy.IEnergizedItem;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -18,12 +19,12 @@ public class HealerItem extends Item implements IEnergizedItem{
 	}
 	
 	private double energy = 0;
-	private double maxEnergy = 15000;
+	private double maxEnergy = 1500000;
 	
-	private double perHealthEnergy = 100;
+	private double perHealthEnergy = 10000;
 	
-	//???
-	private double maxTransfer = 5000;
+	//??? Noone knows what this does.. hm... maybe it's the max rate of recharging... Well, this is enough.
+	private double maxTransfer = 50000;
 	
 	private boolean active = true;
 	
@@ -34,12 +35,27 @@ public class HealerItem extends Item implements IEnergizedItem{
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag){
 		super.addInformation(itemstack, entityplayer, list, flag);
 		
-		EnumColor color;
-		if(active)
+		if(!GuiScreen.isShiftKeyDown()){
+			EnumColor color;
+			String message;
+			if(active){
 			color = EnumColor.BRIGHT_GREEN;
-		else
+			message = "On";
+			}
+			else{
 			color = EnumColor.RED;
-		list.add("Mode: " + color + active);
+			message = "Off";
+			}
+			list.add(EnumColor.AQUA + "Stored energy: " + EnumColor.GREY + Supplementary.humanReadableEnergy((long)energy));
+			list.add("Mode: " + color + active);
+			list.add("Hold " + EnumColor.AQUA + "LSHIFT" + EnumColor.GREY + " for details");
+		}else{
+			list.add("Uses energy to locate");
+			list.add("all kinds of wounds");
+			list.add("(excluding emotional),");
+			list.add("thus healing the player.");
+		}
+		
 	}
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player){
