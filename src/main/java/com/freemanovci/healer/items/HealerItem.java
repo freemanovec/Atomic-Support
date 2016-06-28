@@ -17,9 +17,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
 public class HealerItem extends Item implements IEnergizedItem{
-	/*public static void init(){
-		System.out.println("Atomic Healer initialized!");
-	}*/
 	private double maxEnergy = 1500000;
 	
 	private double perHealthEnergy = 10000;
