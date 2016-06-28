@@ -6,7 +6,9 @@ import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import mekanism.common.*;
 
 @Mod(modid = Main.MODID, version = Main.VERSION, canBeDeactivated = true)
 public class Main
@@ -21,7 +23,7 @@ public class Main
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("atomic_healer");
+    	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("atomic_healer").setCreativeTab(CreativeTabs.tabCombat);
     	atomic_healer.init();
     	GameRegistry.registerItem(atomic_healer, "atomic_healer");
     	
