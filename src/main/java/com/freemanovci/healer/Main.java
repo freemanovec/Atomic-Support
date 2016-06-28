@@ -22,8 +22,8 @@ public class Main
     	atomic_healer.init();
     	GameRegistry.registerItem(atomic_healer, "atomic_healer");
     	
-    	Block testBlock = new BlockTest(Material.ground);
-		GameRegistry.registerBlock(testBlock, "mekanismAPITest");
+    	//Block testBlock = new BlockTest(Material.ground);
+		//GameRegistry.registerBlock(testBlock, "mekanismAPITest");
     }
     @EventHandler
     public void init(FMLInitializationEvent event)
