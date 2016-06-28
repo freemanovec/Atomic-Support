@@ -10,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import mekanism.common.*;
 
-@Mod(modid = Main.MODID, version = Main.VERSION, canBeDeactivated = true)
+@Mod(modid = Main.MODID, version = Main.VERSION, canBeDeactivated = true, dependencies = "required-after:Mekanism")
 public class Main
 {
     public static final String MODID = "healer";

@@ -3,7 +3,7 @@
   "modid": "healer",
   "name": "Healer",
   "description": "Item that uses Mekanism energy and uses it to heal the player.",
-  "version": "0.1",
+  "version": "1.0",
   "mcversion": "1.7.10",
   "url": "",
   "updateUrl": "",
