@@ -1,5 +1,6 @@
 package healer.common;
 
+import healer.items.FeederItem;
 import healer.items.HealerItem;
 
 import cpw.mods.fml.common.Mod;
@@ -22,6 +23,8 @@ public class Main
     public void preInit(FMLPreInitializationEvent event){
     	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("AtomicHealer").setCreativeTab(CreativeTabs.tabCombat).setTextureName(MODID + ":" + "AtomicHealer");
     	GameRegistry.registerItem(atomic_healer, "AtomicHealer");
+    	FeederItem atomic_feeder = (FeederItem) new FeederItem().setUnlocalizedName("AtomicFeeder").setCreativeTab(CreativeTabs.tabFood).setTextureName(MODID + ":" + "AtomicFeeder");
+    	GameRegistry.registerItem(atomic_feeder, "AtomicFeeder");
     }
     @EventHandler
     public void init(FMLInitializationEvent event)

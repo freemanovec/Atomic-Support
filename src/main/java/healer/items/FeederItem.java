@@ -16,13 +16,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
-//Healer item is an Item, so it extends Item
+//Feeder item is an Item, so it extends Item
 //Uses Mekanism energy, implements API's interface
-public class HealerItem extends Item implements IEnergizedItem{
+public class FeederItem extends Item implements IEnergizedItem{
 	//Max energy this item can store
 	private double maxEnergy = 1500000;
-	//Ammount of energy used to heal 1 HP (Half a heart)
-	private double perHealthEnergy = 10000;
+	//Ammount of energy used to feed 1 CW (Half of it)
+	private double perWingEnergy = 2500;
 	//Pretty much sure that it's a rate at which the item charges
 	//[OLD]No-one knows what this does.. hm... maybe it's the max rate of recharging... Well, this is enough.
 	private double maxTransfer = 50000;
@@ -59,7 +59,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 			itemstack.stackTagCompound.setBoolean("active", active);
 		}
 	}
-	//[DEPENDANT]flips the state of the item, preventing it from using energy and healing player
+	//[DEPENDANT]flips the state of the item, preventing it from using energy and feeding player
 	private void toggleActive(ItemStack itemstack){
 		setActive(!active(itemstack),itemstack);
 	}
@@ -91,9 +91,9 @@ public class HealerItem extends Item implements IEnergizedItem{
 			list.add("Mode: " + color + message);
 			list.add("Hold " + EnumColor.AQUA + "LSHIFT" + EnumColor.GREY + " for details");
 		}else{ //check Left SHIFT for additional data
-			list.add("Uses energy to locate all");
-			list.add("kinds of wounds (not");
-			list.add("emotional), thus healing");
+			list.add("Uses energy to form");
+			list.add("essential nutreons in");
+			list.add("the stomach, thus feeding");
 			list.add("the player.");
 		}
 	}
@@ -146,14 +146,13 @@ public class HealerItem extends Item implements IEnergizedItem{
 	public void onUpdate(ItemStack itemstack, World par2, Entity par3, int par4, boolean par5){
 		if(itemstack.stackTagCompound != null){
 			if(!par2.isRemote && active(itemstack)){
-				//gets health and max health
+				//gets food level
 				EntityPlayerMP player = (EntityPlayerMP) par3;
-				float health = player.getHealth();
-				float maxHealth = player.getMaxHealth();
-				//compares and heals (SERVERSIDE)
-				if(health < maxHealth){
-					if(discharge(perHealthEnergy,itemstack)){
-						player.heal(1f);
+				float foodLevel = player.getFoodStats().getFoodLevel();
+				//checks and feeds (SERVERSIDE)
+				if(player.getFoodStats().needFood()){
+					if(discharge(perWingEnergy,itemstack)){
+						player.getFoodStats().setFoodLevel((int)foodLevel + 1);
 					}
 				}
 			}
@@ -196,7 +195,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 	public boolean canSend(ItemStack itemstack) {
 		return false;
 	}
-	//no idea.. Propably Alice in Wonderland 2 || Funny joke: I've been comitting under non-existant email for the whole time.. My commits did not count on my accound :C
+	//no idea.. Propably Alice in Wonderland 2
 	@Override
 	public boolean isMetadataSpecific(ItemStack itemstack) {
 		return true;

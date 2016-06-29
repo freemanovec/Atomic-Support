@@ -91,7 +91,7 @@ key_Mekanism Voice:22
 key_key.cofh.empower:47
 key_key.cofh.multimode:46
 key_key.control:29
-soundCategory_master:0.49668875
+soundCategory_master:0.29139072
 soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:1.0
