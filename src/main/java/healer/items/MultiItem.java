@@ -18,16 +18,16 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
-//Healer item is an Item, so it extends Item
-//Uses Mekanism energy, implements API's interface
-public class HealerItem extends Item implements IEnergizedItem{
+public class MultiItem extends Item implements IEnergizedItem{
 	//Max energy this item can store
-	private double maxEnergy = 1500000;
+	private double maxEnergy = 10000000;
+	//Ammount of energy used to feed 1 CW (Half of it)
+	private double perWingEnergy = 2500;
 	//Ammount of energy used to heal 1 HP (Half a heart)
 	private double perHealthEnergy = 10000;
 	//Pretty much sure that it's a rate at which the item charges
 	//[OLD]No-one knows what this does.. hm... maybe it's the max rate of recharging... Well, this is enough.
-	private double maxTransfer = 50000;
+	private double maxTransfer = 250000;
 	//Attempts to read NBT and returns ammount of energy stored in this item
 	//Needs ItemStack so it can get the NBT to read from
 	public double energy(ItemStack itemstack) {
@@ -61,17 +61,9 @@ public class HealerItem extends Item implements IEnergizedItem{
 			itemstack.stackTagCompound.setBoolean("active", active);
 		}
 	}
-	//[DEPENDANT]flips the state of the item, preventing it from using energy and healing player
+	//[DEPENDANT]flips the state of the item, preventing it from using energy and feeding player
 	private void toggleActive(ItemStack itemstack){
 		setActive(!active(itemstack),itemstack);
-	}
-	//[DEPENDANT]called when no nbt is detected
-	//creates one
-	private void justCreated(ItemStack itemstack){
-		System.out.println("ITEM CREATED! YAAAY!");
-		itemstack.stackTagCompound = new NBTTagCompound();
-		itemstack.stackTagCompound.setDouble("energy", 0);
-		itemstack.stackTagCompound.setBoolean("active", true);
 	}
 	//writes tha info that is shown when mouse hovers over the item, even in the NEI
 	//called every frame (not tick)
@@ -93,8 +85,8 @@ public class HealerItem extends Item implements IEnergizedItem{
 			list.add("Mode: " + color + message);
 			list.add("Hold " + EnumColor.AQUA + "LSHIFT" + EnumColor.GREY + " for details");
 		}else{ //check Left SHIFT for additional data
-			String longy = LangUtils.localize("tooltip.HealerItem.text");
-			//String longy = "Uses energy to locate all kinds of wounds (not emotional), thus healing the player.";
+			String longy = LangUtils.localize("tooltip.MultiItem.text");
+			//String longy = "Combines the effects of Atomic Healer and Atomic Feeder. Also extends the capacity, thus lasting much longer.";
 			for(String line: Supplementary.breakIntoLines(longy, 30)){
 				list.add(line);
 			}
@@ -130,10 +122,10 @@ public class HealerItem extends Item implements IEnergizedItem{
 	//1 is depleted
 	//thats why the reversal
 	@Override
-    public double getDurabilityForDisplay(ItemStack itemstack)
-    {//         \|/ -- REVERSAL
-        return 1f-(float)energy(itemstack)/(float)maxEnergy;
-    }
+	public double getDurabilityForDisplay(ItemStack itemstack)
+	{//         \|/ -- REVERSAL
+		return 1f-(float)energy(itemstack)/(float)maxEnergy;
+	}
 	//handles discharging
 	//checks energy level
 	public boolean discharge(double amount,ItemStack itemstack){
@@ -147,6 +139,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 	//called every tick (not frame)
 	@Override
 	public void onUpdate(ItemStack itemstack, World par2, Entity par3, int par4, boolean par5){
+		ItemsShared.feed(itemstack, par2, par3, par4, par5, active(itemstack), perWingEnergy, this);
 		ItemsShared.heal(itemstack, par2, par3, par4, par5, active(itemstack), perHealthEnergy, this);
 	}
 	//[DEPENDANT]mekanism API's method, return energy from NBT
@@ -183,7 +176,7 @@ public class HealerItem extends Item implements IEnergizedItem{
 	public boolean canSend(ItemStack itemstack) {
 		return false;
 	}
-	//no idea.. Propably Alice in Wonderland 2 || Funny joke: I've been comitting under non-existant email for the whole time.. My commits did not count on my accound :C
+	//no idea.. Propably Alice in Wonderland 2
 	@Override
 	public boolean isMetadataSpecific(ItemStack itemstack) {
 		return true;

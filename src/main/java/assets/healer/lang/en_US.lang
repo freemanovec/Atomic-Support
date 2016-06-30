@@ -1,0 +1,8 @@
+item.AtomicHealer.name=Atomic Healer
+item.AtomicFeeder.name=Atomic Feeder
+item.AtomicSupporter.name=Atomic Supporter
+item.ConductorFood.name=Food Conductor
+item.ConductorHealth.name=Health Conductor
+tooltip.MultiItem.text=Combines the effects of Atomic Healer and Atomic Feeder. Also extends the capacity, thus lasting much longer.
+tooltip.FeederItem.text=Uses energy to form essential nutreons in the stomach (or the equivalent), thus feeding the player.
+tooltip.HealerItem.text=Uses energy to locate all kinds of wounds (not emotional), thus healing the player.

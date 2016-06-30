@@ -2,10 +2,12 @@ package healer.items;
 
 import java.util.List;
 
+import healer.common.ItemsShared;
 import healer.common.Supplementary;
 
 import mekanism.api.EnumColor;
 import mekanism.api.energy.IEnergizedItem;
+import mekanism.common.util.LangUtils;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -65,12 +67,12 @@ public class FeederItem extends Item implements IEnergizedItem{
 	}
 	//[DEPENDANT]called when no nbt is detected
 	//creates one
-	private void justCreated(ItemStack itemstack){
+	/*private void justCreated(ItemStack itemstack){
 		System.out.println("ITEM CREATED! YAAAY!");
 		itemstack.stackTagCompound = new NBTTagCompound();
 		itemstack.stackTagCompound.setDouble("energy", 0);
 		itemstack.stackTagCompound.setBoolean("active", true);
-	}
+	}*/
 	//writes tha info that is shown when mouse hovers over the item, even in the NEI
 	//called every frame (not tick)
 	@Override
@@ -91,10 +93,11 @@ public class FeederItem extends Item implements IEnergizedItem{
 			list.add("Mode: " + color + message);
 			list.add("Hold " + EnumColor.AQUA + "LSHIFT" + EnumColor.GREY + " for details");
 		}else{ //check Left SHIFT for additional data
-			list.add("Uses energy to form");
-			list.add("essential nutreons in");
-			list.add("the stomach, thus feeding");
-			list.add("the player.");
+			String longy = LangUtils.localize("tooltip.FeederItem.text");
+			//String longy = "Uses energy to form essential nutreons in the stomach (or the equivalent), thus feeding the player.";
+			for(String line: Supplementary.breakIntoLines(longy, 30)){
+				list.add(line);
+			}
 		}
 	}
 	//called on right click (obviously)
@@ -133,7 +136,7 @@ public class FeederItem extends Item implements IEnergizedItem{
     }
 	//handles discharging
 	//checks energy level
-	private boolean discharge(double amount,ItemStack itemstack){
+	public boolean discharge(double amount,ItemStack itemstack){
 		if(amount<=energy(itemstack)){
 			setEnergy(energy(itemstack)-amount,itemstack);
 			return true;
@@ -144,22 +147,7 @@ public class FeederItem extends Item implements IEnergizedItem{
 	//called every tick (not frame)
 	@Override
 	public void onUpdate(ItemStack itemstack, World par2, Entity par3, int par4, boolean par5){
-		if(itemstack.stackTagCompound != null){
-			if(!par2.isRemote && active(itemstack)){
-				//gets food level
-				EntityPlayerMP player = (EntityPlayerMP) par3;
-				float foodLevel = player.getFoodStats().getFoodLevel();
-				//checks and feeds (SERVERSIDE)
-				if(player.getFoodStats().needFood()){
-					if(discharge(perWingEnergy,itemstack)){
-						player.getFoodStats().setFoodLevel((int)foodLevel + 1);
-					}
-				}
-			}
-		}else{
-			//first run, no NBT detected
-			justCreated(itemstack);
-		}
+		ItemsShared.feed(itemstack, par2, par3, par4, par5, active(itemstack), perWingEnergy, this);
 	}
 	//[DEPENDANT]mekanism API's method, return energy from NBT
 	@Override

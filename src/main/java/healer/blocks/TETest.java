@@ -72,25 +72,21 @@ public class TETest extends TileEntity implements IConfigurable, ICableOutputter
 
 	@Override
 	public boolean canOutputTo(ForgeDirection side) {
-		// TODO Auto-generated method stub
 		return canOutputEnergy;
 	}
 
 	@Override
 	public double getEnergy() {
-		// TODO Auto-generated method stub
 		return actualEnergy;
 	}
 
 	@Override
 	public void setEnergy(double energy) {
-		// TODO Auto-generated method stub
 		actualEnergy = energy;
 	}
 
 	@Override
 	public double getMaxEnergy() {
-		// TODO Auto-generated method stub
 		return maxEnergy;
 	}
 	

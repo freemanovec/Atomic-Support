@@ -2,6 +2,7 @@ package healer.common;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.StringTokenizer;
 
 public class Supplementary {
 	
@@ -32,5 +33,35 @@ public class Supplementary {
 		//https://kodejava.org/how-do-i-format-a-number/
 		NumberFormat formatter = new DecimalFormat("#0.0");
 		return (formatter.format(result)+" "+suffix);
+	}
+	
+	//COPIED CODE
+	//SOURCE: http://stackoverflow.com/questions/7528045/large-string-split-into-lines-with-maximum-length-in-java
+	public static String[] breakIntoLines(String text, int maxLineLength){
+		String SPACE_SEPARATOR = " ";
+		String SPLIT_REGEXP = "\\s+";
+		char NEWLINE = '\n';
+		String[] tokens = text.split(SPLIT_REGEXP);
+	    StringBuilder output = new StringBuilder(text.length());
+	    int lineLen = 0;
+	    for (int i = 0; i < tokens.length; i++) {
+	        String word = tokens[i];
+
+	        if (lineLen + (SPACE_SEPARATOR + word).length() > maxLineLength) {
+	            if (i > 0) {
+	                output.append(NEWLINE);
+	            }
+	            lineLen = 0;
+	        }
+	        if (i < tokens.length - 1 && (lineLen + (word + SPACE_SEPARATOR).length() + tokens[i + 1].length() <=
+	                maxLineLength)) {
+	            word += SPACE_SEPARATOR;
+	        }
+	        output.append(word);
+	        lineLen += word.length();
+	    }
+	    String withLinebreaks = output.toString();
+	    String lines[] = withLinebreaks.split("\\n");
+	    return lines;
 	}
 }
