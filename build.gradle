@@ -14,19 +14,13 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
-
-sourceSets
-{
-    main
-    {
-        java { srcDirs = ["$projectDir/java"] }
-        resources { srcDirs = ["$projectDir/resources"] }
-    }
-}
-
 apply plugin: 'forge'
 
-version = "1.0"
+version = "1.0.6.2"
+
+
+
+
 group= "com.freemanovci.healer" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "AtomicHealer"
 
@@ -48,11 +42,16 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    //compile 'MDK-1.7.10-9.0.2.271.jar'
-    //compile 'Mekanism-1.7.10-8.1.9.265'
-    //compile 'mekanism:mekanism:8.1.9.265'
-    //compile 'Mekanism:Mekanism:8.1.9'
     compile files('libs/MDK-1.7.10-9.0.2.271.jar')
+}
+
+sourceSets
+{
+    main
+    {
+        java { srcDirs = ["$projectDir/java"] }
+        resources { srcDirs = ["$projectDir/resources"] }
+    }
 }
 
 processResources
