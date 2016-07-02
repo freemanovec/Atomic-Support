@@ -1,2 +1,3 @@
-# Healer---Mekanism-API-test
-Adds item that heals the player. Uses Mekanism's energy.
+#Atomic Support [MEKANISM PLUGIN]
+
+Adds items that heals and feeds the player. Uses Mekanism's energy.
