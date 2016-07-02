@@ -17,8 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.oredict.OreDictionary;
 import mekanism.common.*;
+import healer.common.*;
 
-@Mod(modid = Main.MODID, version = Main.VERSION, canBeDeactivated = true, dependencies = "required-after:Mekanism")
+@Mod(modid = ResourcesDNM.modid, version = ResourcesDNM.version, canBeDeactivated = true, dependencies = "required-after:Mekanism")
 public class Main
 {
     public static final String MODID = "healer";
