@@ -23,27 +23,15 @@ public class Main
 {
     public static final String MODID = "healer";
     public static final String VERSION = "1.0.1";
-    
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event){
-    	
-    	
-    	
-    	/*ItemStack atomicAlloy = new ItemStack(OreDictionary,1);
-    	
-    	GameRegistry.addShapelessRecipe(new ItemStack(conductorHealth,1),
-    		Items.golden_apple, craftComponent_atomicAlloy
-    		//Items.golden_apple, OreDictionary.getOres(craftComponent_atomicAlloy).toArray()[0] //can possibly convert to array
-    	);*/
-    }
+
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("AtomicHealer").setCreativeTab(CreativeTabs.tabCombat).setTextureName(MODID + ":" + "AtomicHealer");
+    	HealerItem atomic_healer = (HealerItem) new HealerItem().setUnlocalizedName("AtomicHealer").setCreativeTab(CreativeTabs.tabCombat).setTextureName(MODID + ":" + "AtomicHealer").setMaxStackSize(1);
     	GameRegistry.registerItem(atomic_healer, "AtomicHealer");
-    	FeederItem atomic_feeder = (FeederItem) new FeederItem().setUnlocalizedName("AtomicFeeder").setCreativeTab(CreativeTabs.tabFood).setTextureName(MODID + ":" + "AtomicFeeder");
+    	FeederItem atomic_feeder = (FeederItem) new FeederItem().setUnlocalizedName("AtomicFeeder").setCreativeTab(CreativeTabs.tabFood).setTextureName(MODID + ":" + "AtomicFeeder").setMaxStackSize(1);
     	GameRegistry.registerItem(atomic_feeder, "AtomicFeeder");
-    	MultiItem atomic_supporter = (MultiItem) new MultiItem().setUnlocalizedName("AtomicSupporter").setCreativeTab(CreativeTabs.tabMisc).setTextureName(MODID + ":" + "AtomicSupporter");
+    	MultiItem atomic_supporter = (MultiItem) new MultiItem().setUnlocalizedName("AtomicSupporter").setCreativeTab(CreativeTabs.tabMisc).setTextureName(MODID + ":" + "AtomicSupporter").setMaxStackSize(1);
     	GameRegistry.registerItem(atomic_supporter, "AtomicSupporter");
     	
     	Item conductorHealth = new CraftComponentOnlyItem().setUnlocalizedName("ConductorHealth").setCreativeTab(CreativeTabs.tabRedstone).setTextureName(MODID + ":" + "ConductorHealth");
@@ -98,13 +86,5 @@ public class Main
     		'C', craftComponent_atomicFeeder_item
     	);
     	
-    	/*System.out.println("###########################SYSIN######################");
-    	//System.out.println(GameRegistry.findItem("Mekanism", craftComponent_teleportationCore));
-    	System.out.println("###########################SYSOUT####################");
-    	System.exit(0);*/
-    }
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event){
-    	 
     }
 }
